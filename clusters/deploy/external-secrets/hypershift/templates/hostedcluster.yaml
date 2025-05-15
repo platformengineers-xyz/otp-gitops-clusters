@@ -2,7 +2,7 @@ apiVersion: hypershift.openshift.io/v1beta1
 kind: HostedCluster
 metadata:
   name: '{{ .Values.cluster }}'
-  namespace: '{{ .Values.clusterNameSpace }}'
+  namespace: '{{ .Values.clusterNamespace }}'
 spec:
   etcd:
     managed:
