@@ -13,6 +13,5 @@ spec:
     - name: https-443
       protocol: TCP
       port: 443
-      targetPort: 
   type: ClusterIP
   internalTrafficPolicy: Cluster
