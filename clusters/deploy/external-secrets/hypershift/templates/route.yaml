@@ -9,7 +9,7 @@ metadata:
   labels:
     hypershift.openshift.io/infra-id: {{ .Values.cluster }}
 spec:
-  host: https.apps.{{ .Values.cluster }}.apps.hub.ocp.homelab.swinney.io
+#  host: https.apps.{{ .Values.cluster }}.apps.hub.ocp.homelab.swinney.io
   to:
     kind: Service
     name: default-ingress-passthrough-service-{{ .Values.cluster }}
