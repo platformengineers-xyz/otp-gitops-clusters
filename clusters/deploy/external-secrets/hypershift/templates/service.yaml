@@ -1,0 +1,18 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: default-ingress-passthrough-service-{{ .Values.cluster }}
+  namespace: {{ .Values.clusterNamespace }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "460"
+    helm.sh/hook-weight: "460"
+  labels:
+    hypershift.openshift.io/infra-id: {{ .Values.cluster }}
+spec:
+  ports:
+    - name: https-443
+      protocol: TCP
+      port: 443
+      targetPort: 
+  type: ClusterIP
+  internalTrafficPolicy: Cluster

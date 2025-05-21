@@ -1,0 +1,19 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: default-ingress-passthrough-route-{{ .Values.cluster }}
+  namespace: {{ .Values.clusterNamespace }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "460"
+    helm.sh/hook-weight: "460"
+  labels:
+    hypershift.openshift.io/infra-id: {{ .Values.cluster }}
+spec:
+  host: https.apps.{{ .Values.cluster }}.apps.hub.ocp.homelab.swinney.io
+  to:
+    kind: Service
+    name: default-ingress-passthrough-service-{{ .Values.cluster }}
+    weight: 100
+  tls:
+    termination: passthrough
+  wildcardPolicy: Subdomain

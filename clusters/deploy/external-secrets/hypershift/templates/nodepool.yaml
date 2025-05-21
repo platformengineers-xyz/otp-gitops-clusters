@@ -3,6 +3,9 @@ kind: NodePool
 metadata:
   name: '{{ .Values.nodepool.name }}'
   namespace: '{{ .Values.clusterNamespace }}'
+  annotations:
+    argocd.argoproj.io/sync-wave: "465"
+    helm.sh/hook-weight: "465"
 spec:
   arch: amd64
   clusterName: '{{ .Values.cluster }}'

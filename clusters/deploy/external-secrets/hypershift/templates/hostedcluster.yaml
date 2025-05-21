@@ -3,6 +3,9 @@ kind: HostedCluster
 metadata:
   name: '{{ .Values.cluster }}'
   namespace: '{{ .Values.clusterNamespace }}'
+  annotations:
+    argocd.argoproj.io/sync-wave: "460"
+    helm.sh/hook-weight: "460"
 spec:
   etcd:
     managed:
